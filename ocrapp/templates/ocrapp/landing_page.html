@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisiPass</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: url("https://hpassets.smartlook.com/wp-content/uploads/sites/2/2023/02/12162658/9-best-website-visitor-tracking-tools-in-2022-in-depth-look-19.png") no-repeat center center fixed;
+            background-size: cover;
+            color: #b6bdca;
+            text-align: center;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            background: rgba(0, 0, 0, 0.6); /* Increased opacity for a darker effect */
+            z-index: -1;
+        }
+        .header {
+            width: 100%;
+            height:10%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .header .buttons {
+            display: flex;
+            gap: 15px;
+            margin-right: 25px;
+        }
+        .header .button {
+            background: #2e77a2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .header .button:hover {
+            background: #006bb3;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 80px; /* Adjust for fixed header */
+        }
+        .container h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .container p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>VisiPass</h1>
+        <div class="buttons">
+            <!-- Use Django's URL template tag for navigation -->
+            <a href='/admin/' class="button">Admin</a>
+            <a href= "{% url 'login' %}" class="button">Login</a>
+            <a href="{% url 'register' %}" class="button">Register</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Welcome to VisiPass</h1>
+        <p>Your ultimate solution for seamless visitor pass management. With VisiPass, visitors simply upload their Aadhar or PAN card to generate secure, personalized passes in seconds. Simplify entry processes, enhance efficiency, and ensure organized visitor tracking – all at your fingertips.</p>
+    </div>
+</body>
+</html>

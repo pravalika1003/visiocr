@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPLOAD YOUR CARD</title>
+    <style>
+        /* Background styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(145deg, rgb(66, 66, 118), #1b262c);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Glassmorphism card styling */
+        .card-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Title styling */
+        h2 {
+            color: #ffffff;
+            font-size: 1.5em;
+        }
+
+        /* Input and button styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            background: whitesmoke;
+            border: none;
+            border-radius: 8px;
+            color: black;
+            outline: none;
+        }
+
+        .upload-button {
+            padding: 12px;
+            border: none;
+            background-color: #2a2a72;
+            color: #ffffff;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .upload-button:hover {
+            background-color: #1a1a57;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <h2>UPLOAD YOUR CARD</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" required accept="image/*">
+            <button type="submit" class="upload-button">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

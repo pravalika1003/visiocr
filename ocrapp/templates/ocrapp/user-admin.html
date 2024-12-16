@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisiPass - Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2a2a72, #009ffd);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .button {
+            background: #009ffd;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background: #006bb3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login as</h1>
+        <div class="buttons">
+            <button class="button" onclick="navigateTo('user')">User</button>
+            <button class="button" onclick="navigateTo('admin')">Admin</button>
+        </div>
+    </div>
+    <script>
+        function navigateTo(role) {
+            if (role === 'user') {
+                window.location.href = "{% url 'login' %}"; // Change this to your upload page
+            } else if (role === 'admin') {
+                window.location.href = '/admin/'; // Change this to your admin page
+            }
+        }
+    </script>
+</body>
+</html>

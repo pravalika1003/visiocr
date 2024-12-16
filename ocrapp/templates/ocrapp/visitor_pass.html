@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Pass</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1b262c;
+            font-family: Arial, sans-serif;
+        }
+        .pass-container {
+            background-color: #3a4750;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            color: white;
+            width: 300px;
+        }
+        .visitor-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .details {
+            text-align: center;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .details strong {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+        .visitor-qr {
+            margin-top: 20px;
+            width: 100px;
+            height: 100px;
+        }
+        .download-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="pass-container">
+        <h2>Visitor Pass</h2>
+        
+        <!-- Display Passport Photo -->
+        {% if passport_photo_url %}
+            <img src="{{ passport_photo_url }}" alt="Visitor Photo" class="visitor-photo">
+
+
+        {% else %}
+            <p>No photo available</p>
+        {% endif %}
+
+        
+        <div class="details">
+            <p><strong>UIDAI:</strong> {{ details.UIDAI }}</p>
+            <p><strong>Name:</strong> {{ details.Name }}</p>
+            <p><strong>DOB:</strong> {{ details.DOB }}</p>
+            <p><strong>Gender:</strong> {{ details.Gender }}</p>
+            <p><strong>Email:</strong> {{ visitor_info.email }}</p>
+            <p><strong>Phone:</strong> {{ visitor_info.phone }}</p>
+            <p><strong>Issue Date:</strong> {{ issue_date }}</p>
+            <p><strong>Expiry Date:</strong> {{expiry_date }}</p>
+        </div>
+        
+        <!-- Display QR Code -->
+        {% if qr_code_url %}
+            <img src="{{ qr_code_url }}" alt="QR Code" class="visitor-qr">
+        {% endif %}
+    </div>
+    
+    <!-- Download Button -->
+    <div class="download-button-container">
+        <a href="{% url 'download_pass' %}" class="btn" role="button">Download Pass</a>
+    </div>
+</body>
+</html>
